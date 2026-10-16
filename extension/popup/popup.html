@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AAPC Purchases Web App</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="logo-box">AAPC</div>
+      <div>
+        <h3>Purchases Explorer</h3>
+        <p>Order Manager & Scraper</p>
+      </div>
+    </div>
+
+    <!-- Target Info Box -->
+    <div class="card">
+      <div class="card-title">Target Page</div>
+      <div class="url-text">purchaseditem.aspx?i=74baec09...</div>
+      <button id="btn-open-aapc" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
+        🚀 Open AAPC Purchases Page
+      </button>
+    </div>
+
+    <!-- Credentials Status Box -->
+    <div class="card">
+      <div class="card-title">Configured Credentials</div>
+      <div class="cred-row">
+        <span>Username:</span>
+        <strong>Cardeahealthcare</strong>
+      </div>
+      <div class="cred-row">
+        <span>Password:</span>
+        <strong>••••••••••</strong>
+      </div>
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Auto-login assistant active</span>
+      </div>
+    </div>
+
+    <!-- Scraped Cache Box -->
+    <div class="card">
+      <div class="card-title">Cached Orders</div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px;">
+        <span style="font-size: 20px; font-weight: bold; color: #0056b3;" id="cache-count">0</span>
+        <span style="font-size: 11px; color: #64748b;" id="cache-time">None</span>
+      </div>
+      <button id="btn-popup-export-csv" class="btn btn-secondary" style="margin-top: 8px; width: 100%;">
+        📥 Export Stored Orders (CSV)
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <span>AAPC Web App Extension v1.0.0</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

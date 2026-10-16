@@ -1,0 +1,730 @@
+/* AAPC Purchases Explorer - Content Styles */
+
+:root {
+  --aapc-primary: #0056b3;
+  --aapc-primary-hover: #004085;
+  --aapc-accent: #10b981;
+  --aapc-accent-hover: #059669;
+  --aapc-bg-glass: rgba(255, 255, 255, 0.96);
+  --aapc-text-main: #1f2937;
+  --aapc-text-muted: #6b7280;
+  --aapc-border: #e5e7eb;
+}
+
+#aapc-launcher-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 20px !important;
+  background: linear-gradient(135deg, #0056b3 0%, #0080ff 100%) !important;
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 86, 179, 0.5), 0 8px 10px -6px rgba(0, 86, 179, 0.3) !important;
+  cursor: pointer !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+}
+
+#aapc-launcher-btn:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 15px 30px -5px rgba(0, 86, 179, 0.6) !important;
+}
+
+#aapc-launcher-badge {
+  background: #10b981 !important;
+  color: white !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+/* Modal Overlay */
+#aapc-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(4px) !important;
+  z-index: 2147483646 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#aapc-modal-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Modal Container */
+#aapc-app-container {
+  width: 96% !important;
+  max-width: 1380px !important;
+  height: 92vh !important;
+  max-height: 900px !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  color: #1f2937 !important;
+  border: 1px solid #e2e8f0 !important;
+  animation: aapcSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes aapcSlideUp {
+  from {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Header */
+.aapc-header {
+  padding: 16px 24px !important;
+  background: linear-gradient(90deg, #0d253f 0%, #173b64 100%) !important;
+  color: white !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.aapc-title-area {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.aapc-logo-badge {
+  background: #0080ff !important;
+  color: white !important;
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+  font-weight: 800 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.aapc-title-text h2 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+}
+
+.aapc-title-text p {
+  margin: 2px 0 0 0 !important;
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+}
+
+.aapc-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Metric Stats Bar */
+.aapc-stats-bar {
+  display: flex !important;
+  background: #f8fafc !important;
+  padding: 12px 24px !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  gap: 24px !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.aapc-stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.aapc-stat-label {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.aapc-stat-val {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+}
+
+.aapc-stat-val.accent {
+  color: #059669 !important;
+}
+
+/* Deep-Fetch Banner */
+#aapc-deep-fetch-bar {
+  background: #eff6ff !important;
+  border-bottom: 1px solid #bfdbfe !important;
+  padding: 8px 24px !important;
+  font-size: 12.5px !important;
+  color: #1e40af !important;
+  display: none;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+#aapc-deep-fetch-bar.active {
+  display: flex !important;
+}
+
+.aapc-info-banner {
+  background: #eff6ff !important;
+  border-bottom: 1px solid #bfdbfe !important;
+  color: #1e40af !important;
+  padding: 10px 24px !important;
+  font-size: 12.5px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+.aapc-info-banner strong {
+  color: #1e3a8a !important;
+}
+
+/* Source Selection Tabs */
+.aapc-tabs-bar {
+  display: flex !important;
+  gap: 6px !important;
+  padding: 10px 24px !important;
+  background: #f1f5f9 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  overflow-x: auto !important;
+}
+
+.aapc-tab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 7px 14px !important;
+  border-radius: 8px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #475569 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+}
+
+.aapc-tab-btn:hover {
+  background: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.aapc-tab-btn.active {
+  background: #0056b3 !important;
+  color: #ffffff !important;
+  border-color: #0056b3 !important;
+  box-shadow: 0 2px 4px rgba(0, 86, 179, 0.2) !important;
+}
+
+/* Toolbar */
+.aapc-toolbar {
+  padding: 12px 24px !important;
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  flex-wrap: wrap !important;
+}
+
+.aapc-search-box {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  min-width: 300px !important;
+  flex: 1 !important;
+  max-width: 440px !important;
+}
+
+.aapc-search-box input {
+  border: none !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  color: #1e293b !important;
+  width: 100% !important;
+  outline: none !important;
+}
+
+.aapc-btn-group {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.aapc-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 8px 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  user-select: none !important;
+}
+
+.aapc-btn-primary { background: #0056b3 !important; color: white !important; }
+.aapc-btn-primary:hover { background: #004085 !important; }
+
+.aapc-btn-success { background: #10b981 !important; color: white !important; }
+.aapc-btn-success:hover { background: #059669 !important; }
+
+.aapc-btn-warning { background: #d97706 !important; color: white !important; }
+.aapc-btn-warning:hover { background: #b45309 !important; }
+
+.aapc-btn-outline { background: white !important; color: #334155 !important; border-color: #cbd5e1 !important; }
+.aapc-btn-outline:hover { background: #f8fafc !important; border-color: #94a3b8 !important; }
+
+.aapc-btn-icon-close {
+  background: transparent !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+}
+.aapc-btn-icon-close:hover { color: white !important; background: rgba(255, 255, 255, 0.1) !important; }
+
+/* Table Container */
+.aapc-table-wrapper {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+}
+
+.aapc-data-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 13px !important;
+  text-align: left !important;
+}
+
+.aapc-data-table thead {
+  position: sticky !important;
+  top: 0 !important;
+  background: #f8fafc !important;
+  z-index: 10 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.aapc-data-table th {
+  padding: 12px 16px !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  white-space: nowrap !important;
+}
+
+.aapc-data-table td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  color: #1e293b !important;
+  vertical-align: middle !important;
+}
+
+.aapc-data-table tbody tr:hover {
+  background: #f8fafc !important;
+}
+
+.aapc-order-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: 700 !important;
+  color: #0056b3 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.aapc-sub-item-badge {
+  background: #e0f2fe !important;
+  color: #0369a1 !important;
+  font-size: 10px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+
+.aapc-copy-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+}
+.aapc-copy-btn:hover { color: #0056b3 !important; background: #e0f2fe !important; }
+
+.aapc-badge-type {
+  display: inline-block !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.aapc-badge-type.course { background: #dbeafe !important; color: #1e40af !important; }
+.aapc-badge-type.exam { background: #fef3c7 !important; color: #92400e !important; }
+.aapc-badge-type.digital { background: #dcfce7 !important; color: #166534 !important; }
+.aapc-badge-type.membership { background: #f3e8ff !important; color: #6b21a8 !important; }
+
+.aapc-shipped-to-box {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  font-size: 12.5px !important;
+  color: #334155 !important;
+  max-width: 280px !important;
+  line-height: 1.35 !important;
+}
+
+.aapc-shipped-icon {
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+.aapc-amount {
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  font-family: ui-monospace, SFMono-Regular, monospace !important;
+}
+
+.aapc-download-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 6px 12px !important;
+  background: #10b981 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.aapc-download-btn:hover {
+  background: #059669 !important;
+  transform: translateY(-1px) !important;
+}
+
+.aapc-expand-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 5px 10px !important;
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+  border: 1px solid #86efac !important;
+  font-weight: 600 !important;
+  font-size: 11.5px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+}
+
+.aapc-expand-btn:hover {
+  background: #dcfce7 !important;
+  border-color: #4ade80 !important;
+  color: #14532d !important;
+}
+
+.aapc-expand-btn.loading {
+  background: #fef3c7 !important;
+  border-color: #fcd34d !important;
+  color: #92400e !important;
+  cursor: wait !important;
+}
+
+/* Empty State */
+.aapc-empty-state {
+  text-align: center !important;
+  padding: 60px 20px !important;
+  color: #64748b !important;
+}
+
+.aapc-empty-icon {
+  font-size: 40px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Inspector Panel */
+.aapc-inspector-panel {
+  display: none;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  max-height: 350px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.aapc-inspector-panel.active { display: block; }
+
+.aapc-table-card {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.aapc-footer {
+  padding: 10px 24px !important;
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 12px !important;
+  color: #64748b !important;
+}
+
+/* Login Helper Toast */
+#aapc-login-toast {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  background: #ffffff !important;
+  border: 1px solid #3b82f6 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  width: 320px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  animation: aapcSlideIn 0.3s ease;
+}
+
+@keyframes aapcSlideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Year Categorization Bar */
+.aapc-year-category-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 8px 24px !important;
+  background: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  overflow-x: auto !important;
+  flex-wrap: nowrap !important;
+}
+
+.aapc-year-label {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.aapc-year-pills {
+  display: inline-flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  overflow-x: auto !important;
+  padding: 2px 0 !important;
+}
+
+.aapc-year-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 4px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+}
+
+.aapc-year-pill:hover {
+  background: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  transform: translateY(-1px) !important;
+}
+
+.aapc-year-pill.active {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25) !important;
+}
+
+.aapc-year-pill .pill-count {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  padding: 1px 6px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.aapc-year-pill.active .pill-count {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+/* Date Cell & Year Badge */
+.aapc-date-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+}
+
+.aapc-invoice-date {
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  font-size: 13px !important;
+}
+
+.aapc-year-badge {
+  display: inline-block !important;
+  align-self: flex-start !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #0369a1 !important;
+  background: #e0f2fe !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 4px !important;
+  padding: 1px 6px !important;
+}
+
+/* Year Section Header in Grouped Mode */
+.aapc-year-group-row td {
+  background: #f1f5f9 !important;
+  border-top: 2px solid #cbd5e1 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  padding: 10px 16px !important;
+}
+
+.aapc-year-group-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.aapc-year-group-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 13.5px !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+.aapc-year-group-meta {
+  font-size: 12px !important;
+  color: #475569 !important;
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+.aapc-expand-year-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  border: 1px solid #f59e0b !important;
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+}
+
+.aapc-expand-year-btn:hover {
+  background: #fde68a !important;
+  color: #78350f !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.25) !important;
+}
+
+.aapc-expand-year-btn.loading {
+  background: #fef9c3 !important;
+  color: #854d0e !important;
+  cursor: wait !important;
+}
+
+.aapc-year-expanded-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 11px !important;
+  color: #059669 !important;
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+

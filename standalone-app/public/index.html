@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AAPC Purchases Web App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo">AAPC</div>
+      <div class="header-title">
+        <h1>Purchases & Orders Dashboard</h1>
+        <p>Member Area Explorer for <code>my-purchased-items.aspx</code> & <code>purchaseditem.aspx</code></p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="account-pill">
+        <span class="user-icon">👤</span>
+        <span class="username">Cardeahealthcare</span>
+      </div>
+      <button id="btn-open-fetch-modal" class="btn btn-primary">
+        ⚡ Fetch Live AAPC Purchases
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+    <!-- Stat Cards -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Purchases</div>
+        <div class="stat-value" id="stat-total-orders">0</div>
+        <div class="stat-sub">Across all categories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Amount Spent</div>
+        <div class="stat-value text-accent" id="stat-total-spend">$0.00</div>
+        <div class="stat-sub">USD Verified Transactions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Credentials</div>
+        <div class="stat-value" style="font-size: 16px; color: #0056b3;">Cardeahealthcare</div>
+        <div class="stat-sub">AAPC Member Account</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Target Page</div>
+        <div class="stat-value" style="font-size: 13px; font-family: monospace; color: #475569;">my-purchased-items.aspx</div>
+        <div class="stat-sub"><a href="https://www.aapc.com/memberarea/my-purchased-items.aspx" target="_blank" style="color:#0056b3;">Open AAPC directly ↗</a></div>
+      </div>
+    </section>
+
+    <!-- Toolbar / Controls -->
+    <section class="table-card">
+      <div style="background: #eff6ff; border-bottom: 1px solid #bfdbfe; color: #1e40af; padding: 12px 20px; font-size: 13px;">
+        💡 <strong>AAPC Multi-Product Line Items:</strong> On <code>my-purchased-items.aspx</code>, AAPC displays a single collapsed row with <em>Cardea Healthcare</em> in Shipped To. The app extracts each individual product line item with its distinct student destination (e.g., <em>Fathima N S</em>, <em>Sillaa PS</em>, <em>Bismi Nazar S</em>) by fetching the underlying receipt.
+      </div>
+      <div class="table-toolbar">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="input-search" placeholder="Search by Order ID, Bill To, Product, Date, Amount..." />
+        </div>
+        <div class="actions-group">
+          <button id="btn-load-sample" class="btn btn-secondary">
+            🧪 Sample Data
+          </button>
+          <a id="btn-export-csv" href="/api/export-csv" class="btn btn-success">
+            📥 Export to CSV
+          </a>
+          <button id="btn-download-all" class="btn btn-primary">
+            📦 Batch Download All
+          </button>
+        </div>
+      </div>
+
+      <!-- Purchases Table -->
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 150px;">Order Id</th>
+              <th>Bill To</th>
+              <th style="width: 120px;">Date</th>
+              <th>Product Type</th>
+              <th>Shipped To</th>
+              <th style="width: 120px;">Amount</th>
+              <th style="width: 140px; text-align: center;">Download</th>
+            </tr>
+          </thead>
+          <tbody id="purchases-table-body">
+            <!-- Dynamically Rendered -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <span id="showing-text">Showing 0 of 0 purchases</span>
+        <span class="secure-badge">🔒 End-to-end Encrypted Session</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fetch Live Modal -->
+  <div id="fetch-modal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Fetch Live AAPC Purchases</h3>
+        <button id="btn-close-modal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: #475569; margin-top: 0;">
+          This initiates the Playwright scraper to authenticate with AAPC SSO and retrieve your purchases table.
+        </p>
+
+        <div class="form-group">
+          <label>AAPC Username / Member ID</label>
+          <input type="text" id="modal-username" value="Cardeahealthcare" />
+        </div>
+
+        <div class="form-group">
+          <label>AAPC Password</label>
+          <input type="password" id="modal-password" value="Walnut@143!" />
+        </div>
+
+        <div class="form-group">
+          <label>Target Page URL</label>
+          <input type="text" id="modal-target-url" value="https://www.aapc.com/memberarea/my-purchased-items.aspx" />
+        </div>
+
+        <div class="form-group">
+          <label>Browser Execution</label>
+          <select id="modal-headless">
+            <option value="true">Headless (Background)</option>
+            <option value="false">Visual (Show Browser Window)</option>
+          </select>
+        </div>
+
+        <div id="fetch-progress" class="progress-box" style="display: none;">
+          <div class="spinner"></div>
+          <div id="fetch-status-text">Connecting to AAPC & authenticating...</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-cancel-modal" class="btn btn-secondary">Cancel</button>
+        <button id="btn-run-scrape" class="btn btn-primary">Start Fetching</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
